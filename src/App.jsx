@@ -14,7 +14,19 @@ const App = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   const handleFilterChange = (event) => {
-    setSelectedFilter(event.target.value);
+    const filter = event.target.value;
+    setSelectedFilter(filter);
+
+    if (filter === 'View All') {
+      // Display all countries and their states automatically
+      const allResults = Object.entries(countryToStatesMap).flatMap(
+        ([country, states]) => states.map((state) => ({ country, state }))
+      );
+      setSearchResults(allResults);
+    } else {
+      // Clear results when any other filter is selected
+      setSearchResults([]);
+    }
   };
 
   const handleInputChange = (event) => {
@@ -46,7 +58,6 @@ const App = () => {
     }
   };
 
-  
   const handleClear = () => {
     setInputValue('');
     setSearchResults([]);
