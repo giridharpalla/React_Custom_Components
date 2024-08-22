@@ -1,3 +1,5 @@
+import reactimg from './assets/react-core-concepts.png'
+
 const randomGenerator = ['Fundametnal', 'Core', 'Conceptual'];
 
 function Number(max){
@@ -8,7 +10,7 @@ function Number(max){
 function Header(){
   return (
   <header>
-        <img src="src/assets/react-core-concepts.png" alt="Stylized atom" />
+        <img src={reactimg} alt="Stylized atom" />
         <h1>React Essentials</h1>
         <p>
           {randomGenerator[Number(2)]} React concepts you will need for almost any app you are
